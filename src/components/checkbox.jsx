@@ -1,8 +1,13 @@
 import { View, StyleSheet } from "react-native";
 
-export default function CheckBox(){
+export default function CheckBox(props){
+    const {finished} = props.state;
+    const style = {
+        backgroundColor: finished ? 'darkslategray' : 'azure'
+    };
+
     return (
-        <View style={styles.box}></View>
+        <View style={[styles.box, style]} onStartShouldSetResponder={() => props.toggle()}></View>
     );
 }
 
