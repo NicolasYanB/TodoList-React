@@ -7,7 +7,7 @@ export default function Home(){
         <View>
             <Title>ToDo List</Title>
             <View style={styles.card}>
-                <Card>Resolver exercicios de matemática</Card>
+                <Card>Resolver exercícios de matemática</Card>
             </View>
         </View>
     );

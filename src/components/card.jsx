@@ -1,8 +1,10 @@
 import { View, Text, StyleSheet } from "react-native";
+import CheckBox from "./checkbox";
 
 export default function Card(props){
     return (
         <View style={styles.container}>
+            <CheckBox/>
             <Text style={styles.text}>{props.children}</Text>
         </View>
     );
@@ -15,11 +17,12 @@ const styles = StyleSheet.create({
         width: '98%',
         borderWidth: 1,
         borderColor: "darkblue",
-        borderRadius: 5
+        borderRadius: 5,
+        flexDirection: 'row'
     },
     text: {
         fontSize: 17,
         textAlign: 'right',
-        paddingRight: 25
+        marginLeft: 25,
     }
 });
