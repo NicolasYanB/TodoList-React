@@ -10,8 +10,8 @@ export default function Card(props){
     };
 
     return (
-        <View style={styles.container}>
-            <CheckBox state={boxState} toggle={finishTask}/>
+        <View style={styles.container} onStartShouldSetResponder={() => finishTask()}>
+            <CheckBox state={boxState}/>
             <Text style={styles.text}>{props.children}</Text>
         </View>
     );

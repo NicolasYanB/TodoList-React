@@ -7,7 +7,7 @@ export default function CheckBox(props){
     };
 
     return (
-        <View style={[styles.box, style]} onStartShouldSetResponder={() => props.toggle()}></View>
+        <View style={[styles.box, style]}></View>
     );
 }
 
