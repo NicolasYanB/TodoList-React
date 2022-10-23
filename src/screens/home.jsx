@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import Title from "../components/title";
 import Card from "../components/card";
+import AddTaskButton from "../components/addTaskButton";
 
 export default function Home(){
     return (
@@ -9,6 +10,7 @@ export default function Home(){
             <View style={styles.card}>
                 <Card>Resolver exercícios de matemática</Card>
             </View>
+            <AddTaskButton/>
         </View>
     );
 }
