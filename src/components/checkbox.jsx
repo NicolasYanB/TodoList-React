@@ -13,7 +13,6 @@ export default function CheckBox(props){
 
 const styles = StyleSheet.create({
     box: {
-        backgroundColor: 'azure', //darkslategray
         width: '8%',
         padding: 12,
         borderRadius: 22,

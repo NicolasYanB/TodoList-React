@@ -3,7 +3,9 @@ import CheckBox from "./checkbox";
 import { useState } from "react";
 
 export default function Card(props){
-    const [boxState, setBoxState] = useState({finished: false});
+    const {finished, text} = props
+
+    const [boxState, setBoxState] = useState({finished});
 
     const finishTask = () => {
         setBoxState(boxState.finished ? {...boxState, finished: false} : {...boxState, finished: true});
@@ -12,7 +14,7 @@ export default function Card(props){
     return (
         <View style={styles.container} onStartShouldSetResponder={() => finishTask()}>
             <CheckBox state={boxState}/>
-            <Text style={styles.text}>{props.children}</Text>
+            <Text style={styles.text}>{text}</Text>
         </View>
     );
 }
@@ -25,7 +27,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: "darkblue",
         borderRadius: 5,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginBottom: 3
     },
     text: {
         fontSize: 17,
