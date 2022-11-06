@@ -3,17 +3,16 @@ import { useState } from "react";
 import Title from "../components/title";
 import Card from "../components/card";
 import AddTaskButton from "../components/addTaskButton";
+import AddTaskModal from "../components/addTaskModal";
 
 export default function Home(){
     const [cards, setCards] = useState([]);
 
-    const addCard = () => {
+    const addCard = (text) => {
         const newCards = [...cards];
         newCards.push({key: cards.length+1, text: 'teste', finished: false});
         setCards(newCards);
     };
-
-    //addCard('Resolver exercicios de matemática');
 
     return (
         <View>
@@ -22,6 +21,7 @@ export default function Home(){
                 {cards.map((card) => (<Card key={card.key} text={card.text} finished={card.finished}/>))}
             </View>
             <AddTaskButton add={addCard}/>
+            <AddTaskModal/>
         </View>
     );
 }
