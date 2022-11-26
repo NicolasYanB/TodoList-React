@@ -22,7 +22,7 @@ export default function Home(){
                 {cards.map((card) => (<Card key={card.key} text={card.text} finished={card.finished}/>))}
             </View>
             <AddTaskButton toggleModal={() => setIsVisible(true)}/>
-            <AddTaskModal add={addCard} visible={isVisible}/>
+            <AddTaskModal add={addCard} visible={isVisible} hideModal={() => setIsVisible(false)}/>
         </View>
     );
 }

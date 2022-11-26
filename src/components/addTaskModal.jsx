@@ -6,6 +6,7 @@ function AddTaskModal(props){
 
     const {add} = props;
     const {visible} = props;
+    const {hideModal} = props;
 
     return(
         <View>
@@ -17,7 +18,11 @@ function AddTaskModal(props){
                         value={value}
                         onChangeText={onChangeText}
                         returnKeyType='Done'
-                        onSubmitEditing={() => add(value)}
+                        onSubmitEditing={() => {
+                            add(value);
+                            onChangeText('');
+                            hideModal();
+                        }}
                     />
                 </View>
             </Modal>
