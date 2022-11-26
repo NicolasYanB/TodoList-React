@@ -1,11 +1,25 @@
 import {View, Modal, TextInput, StyleSheet} from 'react-native';
+import { useState } from 'react';
 
-function AddTaskModal(){
+function AddTaskModal(props){
+    const [value, onChangeText] = useState('');
+
+    const {add} = props;
+    const enterEvent = (ev) => {
+        console.log(ev.nativeEvent.key);
+    }
+
     return(
         <View>
             <Modal transparent={true}>
                 <View style={styles.modalView}>
-                    <TextInput style={styles.input} placeholder={'Add a task'}/>
+                    <TextInput
+                        style={styles.input}
+                        placeholder={'Add a task'}
+                        value={value}
+                        onChangeText={onChangeText}
+                        onKeyPress={enterEvent}
+                    />
                 </View>
             </Modal>
         </View>

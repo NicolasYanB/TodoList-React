@@ -20,8 +20,8 @@ export default function Home(){
             <View style={styles.card}>
                 {cards.map((card) => (<Card key={card.key} text={card.text} finished={card.finished}/>))}
             </View>
-            <AddTaskButton add={addCard}/>
-            <AddTaskModal/>
+            <AddTaskButton/>
+            <AddTaskModal add={addCard}/>
         </View>
     );
 }

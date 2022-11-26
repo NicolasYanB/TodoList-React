@@ -1,10 +1,9 @@
 import { View, TouchableOpacity, Image, StyleSheet } from "react-native";
 
 export default function AddTaskButton(props){
-    const {add} = props;
     return (
         <View style={styles.button}>
-            <TouchableOpacity onPress={() => add()}>
+            <TouchableOpacity>
                 <Image source={require('../../assets/add.png')}/>
             </TouchableOpacity>
         </View>
