@@ -5,9 +5,6 @@ function AddTaskModal(props){
     const [value, onChangeText] = useState('');
 
     const {add} = props;
-    const enterEvent = (ev) => {
-        console.log(ev.nativeEvent.key);
-    }
 
     return(
         <View>
@@ -18,7 +15,8 @@ function AddTaskModal(props){
                         placeholder={'Add a task'}
                         value={value}
                         onChangeText={onChangeText}
-                        onKeyPress={enterEvent}
+                        returnKeyType='Done'
+                        onSubmitEditing={() => add(value)}
                     />
                 </View>
             </Modal>
