@@ -5,10 +5,11 @@ function AddTaskModal(props){
     const [value, onChangeText] = useState('');
 
     const {add} = props;
+    const {visible} = props;
 
     return(
         <View>
-            <Modal transparent={true}>
+            <Modal transparent={true} visible={visible}>
                 <View style={styles.modalView}>
                     <TextInput
                         style={styles.input}

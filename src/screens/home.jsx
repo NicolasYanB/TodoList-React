@@ -7,6 +7,7 @@ import AddTaskModal from "../components/addTaskModal";
 
 export default function Home(){
     const [cards, setCards] = useState([]);
+    const [isVisible, setIsVisible] = useState(false);
 
     const addCard = (text) => {
         const newCards = [...cards];
@@ -21,7 +22,7 @@ export default function Home(){
                 {cards.map((card) => (<Card key={card.key} text={card.text} finished={card.finished}/>))}
             </View>
             <AddTaskButton/>
-            <AddTaskModal add={addCard}/>
+            <AddTaskModal add={addCard} visible={isVisible}/>
         </View>
     );
 }
