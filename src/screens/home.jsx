@@ -11,7 +11,7 @@ export default function Home(){
 
     const addCard = (text) => {
         const newCards = [...cards];
-        newCards.push({key: cards.length+1, text: 'teste', finished: false});
+        newCards.push({key: cards.length+1, text, finished: false});
         setCards(newCards);
     };
 
