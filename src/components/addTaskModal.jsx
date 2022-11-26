@@ -26,7 +26,9 @@ function AddTaskModal(props){
 
 const styles = StyleSheet.create({
     modalView: {
-        backgroundColor: 'lightblue'
+        backgroundColor: 'lightblue',
+        position: 'relative',
+        top: '87%'
     },
     input: {
         fontSize: 17,
