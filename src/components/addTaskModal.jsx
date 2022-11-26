@@ -10,7 +10,10 @@ function AddTaskModal(props){
 
     return(
         <View>
-            <Modal transparent={true} visible={visible}>
+            <Modal transparent={true} visible={visible} onRequestClose={() => {
+                onChangeText('');
+                hideModal();
+            }}>
                 <View style={styles.modalView}>
                     <TextInput
                         style={styles.input}
