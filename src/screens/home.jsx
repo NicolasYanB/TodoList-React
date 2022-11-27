@@ -4,6 +4,7 @@ import Title from "../components/title";
 import Card from "../components/card";
 import AddTaskButton from "../components/addTaskButton";
 import AddTaskModal from "../components/addTaskModal";
+import FilterSwitch from "../components/filterSwitch";
 
 export default function Home(){
     const [cards, setCards] = useState([]);
@@ -18,6 +19,7 @@ export default function Home(){
     return (
         <View>
             <Title>ToDo List</Title>
+            <FilterSwitch/>
             <View style={styles.card}>
                 {cards.map((card) => (<Card key={card.key} text={card.text} finished={card.finished}/>))}
             </View>
