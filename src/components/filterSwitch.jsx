@@ -2,15 +2,20 @@ import { View, Switch,  StyleSheet } from "react-native";
 
 function FilterSwitch(){
     return (
-        <View style={styles.switch}>
-            <Switch/>
+        <View>
+            <Switch style={styles.switch}/>
         </View>
     );
 }
 
+const switchSize = 1.6;
+
 const styles = StyleSheet.create({
     switch: {
-        alignItems: 'flex-start'
+        transform: [
+            {scaleX: switchSize},
+            {scaleY: switchSize}
+        ]
     }
 });
 
