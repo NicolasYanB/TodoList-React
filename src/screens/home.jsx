@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { useState } from "react";
 import Title from "../components/title";
 import Card from "../components/card";
@@ -19,7 +19,9 @@ export default function Home(){
     return (
         <View>
             <Title>ToDo List</Title>
-            <FilterSwitch/>
+            <View style={styles.filterView}>
+                <FilterSwitch/>
+            </View>
             <View style={styles.card}>
                 {cards.map((card) => (<Card key={card.key} text={card.text} finished={card.finished}/>))}
             </View>
@@ -33,5 +35,8 @@ const styles = StyleSheet.create({
     card: {
         marginTop: 50,
         alignItems: 'center'
+    },
+    filterView: {
+        flexDirection: 'row-reverse'
     }
 });
