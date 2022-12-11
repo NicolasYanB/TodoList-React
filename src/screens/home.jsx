@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     filterView: {
-        flexDirection: 'row-reverse'
+        flexDirection: 'row-reverse',
+        marginLeft: 20
     }
 });
