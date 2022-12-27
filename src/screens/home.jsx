@@ -11,10 +11,11 @@ const allCards = [];
 export default function Home(){
     const [cards, setCards] = useState([]);
     const [isVisible, setIsVisible] = useState(false);
+    const [filter, setFilter] = useState(false);
 
     const addCard = (text) => {
         const newCards = [...cards];
-        const newCard = {key: cards.length+1, text, finished: false};
+        const newCard = {key: allCards.length+1, text, finished: false};
         newCards.push(newCard);
         allCards.push(newCard);
         setCards(newCards);
@@ -31,6 +32,13 @@ export default function Home(){
 
     const finishCard = (key) => {
         const newCards = cards.map((card) => (card.key === key ? {...card, finished: !card.finished} : card));
+        const cardIndex = cards.find((card) => card.key === key).key - 1;
+        allCards[cardIndex].finished = !allCards[cardIndex].finished;
+        if (filter) {
+            const unfinishedCards = allCards.filter((card) => !(card.finished));
+            setCards(unfinishedCards);
+            return;
+        }
         setCards(newCards);
     }
 
@@ -38,7 +46,10 @@ export default function Home(){
         <View>
             <Title>ToDo List</Title>
             <View style={styles.filterView}>
-                <FilterSwitch onChange={filterCards}/>
+                <FilterSwitch filterOn={filter} onChange={(value) => {
+                    setFilter(value);
+                    filterCards(value);
+                }}/>
             </View>
             <View style={styles.card}>
                 {cards.map((card) => (<Card key={card.key} cardKey={card.key} text={card.text} finishCard={finishCard} finished={card.finished}/>))}
