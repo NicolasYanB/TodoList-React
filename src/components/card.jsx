@@ -1,19 +1,14 @@
 import { View, Text, StyleSheet } from "react-native";
 import CheckBox from "./checkbox";
-import { useState } from "react";
 
 export default function Card(props){
-    const {finished, text} = props
-
-    const [boxState, setBoxState] = useState({finished});
-
-    const finishTask = () => {
-        setBoxState(boxState.finished ? {...boxState, finished: false} : {...boxState, finished: true});
-    };
+    const {cardKey, text, finishCard, finished} = props
 
     return (
-        <View style={styles.container} onStartShouldSetResponder={() => finishTask()}>
-            <CheckBox state={boxState}/>
+        <View style={styles.container} onStartShouldSetResponder={() => {
+            finishCard(cardKey);
+        }}>
+            <CheckBox state={finished}/>
             <Text style={styles.text}>{text}</Text>
         </View>
     );

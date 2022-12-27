@@ -1,9 +1,9 @@
 import { View, StyleSheet } from "react-native";
 
 export default function CheckBox(props){
-    const {finished} = props.state;
+    const {state} = props;
     const style = {
-        backgroundColor: finished ? 'midnightblue' : 'azure'
+        backgroundColor: state ? 'midnightblue' : 'azure'
     };
 
     return (

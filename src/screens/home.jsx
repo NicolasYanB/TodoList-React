@@ -23,11 +23,15 @@ export default function Home(){
     const filterCards = (value) => {
         if (value) {
             const unfinishedCards = allCards.filter((card) => !(card.finished));
-            console.log(unfinishedCards);
             setCards(unfinishedCards);
             return;
         }
         setCards([...allCards]);
+    }
+
+    const finishCard = (key) => {
+        const newCards = cards.map((card) => (card.key === key ? {...card, finished: !card.finished} : card));
+        setCards(newCards);
     }
 
     return (
@@ -37,7 +41,7 @@ export default function Home(){
                 <FilterSwitch onChange={filterCards}/>
             </View>
             <View style={styles.card}>
-                {cards.map((card) => (<Card key={card.key} text={card.text} finished={card.finished}/>))}
+                {cards.map((card) => (<Card key={card.key} cardKey={card.key} text={card.text} finishCard={finishCard} finished={card.finished}/>))}
             </View>
             <AddTaskButton toggleModal={() => setIsVisible(true)}/>
             <AddTaskModal add={addCard} visible={isVisible} hideModal={() => setIsVisible(false)}/>
