@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { View, Switch,  StyleSheet } from "react-native";
 
-function FilterSwitch(){
+function FilterSwitch(props){
     const [value, setValue] = useState(false);
+    const {onChange} = props;
 
     return (
         <View>
-            <Switch style={styles.switch} value={value} onValueChange={(v) => setValue(v)}/>
+            <Switch style={styles.switch} value={value} onValueChange={(v) => {setValue(v); onChange(v)}}/>
         </View>
     );
 }

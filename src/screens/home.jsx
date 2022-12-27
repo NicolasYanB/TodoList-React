@@ -6,21 +6,35 @@ import AddTaskButton from "../components/addTaskButton";
 import AddTaskModal from "../components/addTaskModal";
 import FilterSwitch from "../components/filterSwitch";
 
+const allCards = [];
+
 export default function Home(){
     const [cards, setCards] = useState([]);
     const [isVisible, setIsVisible] = useState(false);
 
     const addCard = (text) => {
         const newCards = [...cards];
-        newCards.push({key: cards.length+1, text, finished: false});
+        const newCard = {key: cards.length+1, text, finished: false};
+        newCards.push(newCard);
+        allCards.push(newCard);
         setCards(newCards);
     };
+
+    const filterCards = (value) => {
+        if (value) {
+            const unfinishedCards = allCards.filter((card) => !(card.finished));
+            console.log(unfinishedCards);
+            setCards(unfinishedCards);
+            return;
+        }
+        setCards([...allCards]);
+    }
 
     return (
         <View>
             <Title>ToDo List</Title>
             <View style={styles.filterView}>
-                <FilterSwitch/>
+                <FilterSwitch onChange={filterCards}/>
             </View>
             <View style={styles.card}>
                 {cards.map((card) => (<Card key={card.key} text={card.text} finished={card.finished}/>))}
